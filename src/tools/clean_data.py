@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 import glob
 import pandas as pd
@@ -178,9 +179,16 @@ class CleanData:
         self.df.to_csv(out_file, index=False)
         return self.df
 
-    def one_hot_encoder(self):
-        """OneHot encoder"""
-        features = self.df.select_dtypes(include=['object']).columns.to_list()
+
+class Encoders:
+
+    def __init__(self, df, label_col):
+        self.df = df
+        self.label_col = label_col
+
+    def one_hot(self):
+        """ Apply One-Hot encoding to all categorical columns in a dataframe except the label column. """
+        features = self.df.loc[:, self.df.columns != self.label_col].select_dtypes(include=['object']).columns.to_list()
         for feat in features:
             self.df[feat] = pd.Categorical(self.df[feat])
             df_dummies = pd.get_dummies(self.df[feat], prefix=feat, drop_first=True)
