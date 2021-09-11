@@ -3,6 +3,7 @@ import os
 import glob
 import pandas as pd
 from pandas_profiling import ProfileReport
+from sklearn.preprocessing import LabelEncoder
 import time
 
 
@@ -194,4 +195,12 @@ class Encoders:
             df_dummies = pd.get_dummies(self.df[feat], prefix=feat, drop_first=True)
             self.df.drop(feat, axis=1, inplace=True)
             self.df = pd.concat([self.df, df_dummies], axis=1)
+        return self.df
+
+    def binary_encoder(self, features):
+        """
+        Encode binary categorical values in specific columns with the LabelEncoder from sklearn.
+        """
+        le = LabelEncoder()
+        self.df[features] = self.df[features].apply(le.fit_transform)
         return self.df
