@@ -25,3 +25,10 @@ Get started
      # install local python packages
      python3 setup.py install
      pip3 install -e .
+
+
+Download, clean and encode the data
+-----------------------------------
+Kaggle data set used in the example: [the stroke-prediction-dataset from fedesoriano](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset)
+
+    sh $CLEAN_THE_DATA
