@@ -123,18 +123,20 @@ class ClassificationPlotter:
         sns.boxplot(ax=self.ax, x="model", y="values", hue="metrics", data=self.performance, palette="Set3")
         plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.1)
         plt.title('Comparison of Models by Classification Metrics')
+        # TODO:
         # if save_img==True:
-        #   plt.savefig('path/date_benchmark_models_performance.png', dpi=300)
-        # else continue
+        # plt.savefig('path/timestr_benchmark_models_performance.png', dpi=300)
+        # etc.
 
     def time_metrics_plot(self):
         # FIXME
         sns.boxplot(ax=self.ax, x="model", y="values", hue="metrics", data=self.time_met, palette="Set3")
         plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.1)
         plt.title('Comparison of Model by Fit and Score Time')
+        # TODO:
         # if save_img==True:
-        #   plt.savefig('path/date_benchmark_models_time.png',dpi=300)
-        # else continue
+        # plt.savefig('path/timestr_benchmark_models_time.png',dpi=300)
+        # etc.
 
     def extended_performance_metrics(self):
         """ Get the extended performance metrics info. """
