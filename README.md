@@ -32,3 +32,28 @@ Download, clean and encode the data
 Kaggle data set used in the example: [the stroke-prediction-dataset from fedesoriano](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset)
 
     sh $CLEAN_THE_DATA
+
+
+Repository overview
+-------------------
+
+    .
+    ├── README.md                       # README file
+    ├── data                            # Directory for storing data
+    │   ├── processed                   # Directory for processed - and related files
+    │   └── raw                         # Directory for raw data
+    ├── executables                     # Executable scripts
+    │   └── data_prep.sh                # Executable for data cleaning and encoding
+    ├── global_env.sh                   # Global environment variables
+    ├── notebooks                       # Directory for Jupyter Notebooks
+    │└── stroke_classification.ipynb    # Compare classifiers on a stroke dataset
+    ├── requirements.txt                # Environment dependencies
+    ├── setup.py                        # Setup script to install local modules
+    └── src                             # Source code
+        ├── __init__.py                 # __init__ file to create package
+        ├── classifiers.py              # Classification related classes and functions
+        ├── clean_data.py               # Data cleaning and encoding
+        ├── explore.py                  # Various classes and functions to explore data 
+        ├── fetch_kaggle_data.py        # Fetch Kaggle data sets
+        └── plotter.py                  # Classes and functions for plotting
+
