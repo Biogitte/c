@@ -25,7 +25,7 @@ export KAGGLE_NEW_NAME='stroke_raw.csv' # the new name of the Kaggle data set
 # Variables related to data cleaning and preparation
 export CLEAN_DATA_SCRIPT=$SRC/clean_data.py # the python script
 export INPUT_FILE_PATTERN=$DATA_RAW'/*_'$KAGGLE_NEW_NAME # filename pattern with date as wild-card
-export UNWANTED_COLS='id,age,bmi' # columns to remove (like this: 'id,age,bmi')
+export UNWANTED_COLS='id' # columns to remove (like this: 'id,age,bmi')
 export LABEL_COL='stroke' # the column with classification labels
 export CLEAN_THE_DATA=$EXECUTE'/data_prep.sh' # the bash script to clean and prepare the data
 
