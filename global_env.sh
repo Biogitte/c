@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Working directory - remember to specify accordingly.
-export WORK_DIR=~/Desktop/code/data_science
+export WORK_DIR=$PWD
 
 # Data directories
 export DATA=$WORK_DIR/data
@@ -11,8 +11,8 @@ export DATA_PROC=$DATA/processed
 # Source code directory
 export SRC=$WORK_DIR/src
 
-# Executables directory
-export EXECUTE=$WORK_DIR/executables
+# Executables
+export EXEC=$WORK_DIR/exec
 
 # Jupyter Notebooks directory
 export NOTEBOOKS=$WORK_DIR/notebooks
@@ -27,7 +27,9 @@ export CLEAN_DATA_SCRIPT=$SRC/clean_data.py # the python script
 export INPUT_FILE_PATTERN=$DATA_RAW'/*_'$KAGGLE_NEW_NAME # filename pattern with date as wild-card
 export UNWANTED_COLS='id' # columns to remove (like this: 'id,age,bmi')
 export LABEL_COL='stroke' # the column with classification labels
-export CLEAN_THE_DATA=$EXECUTE'/data_prep.sh' # the bash script to clean and prepare the data
+export CLEAN_THE_DATA=$EXEC/data_prep.sh # the bash script to clean and prepare the data
 
-
+# Variables related to comparing binary classifiers
+export BINARY_CLFS_SCRIPT=$SRC/binary_classifiers.py
+export COMPARE_BINARY_CLFS=$EXEC/compare_binary_clf.sh
 
