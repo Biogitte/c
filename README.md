@@ -33,12 +33,16 @@ Kaggle data set used in the example: [the stroke-prediction-dataset from fedesor
 
     sh $CLEAN_THE_DATA
     
+View output files (e.g., CSV and HTML files) in `/data/processed`.
+    
 Compare binary classification models
 ------------------------------------
 
 Quick and simple comparison of common binary classificagtion algorithms.
 
     sh $COMPARE_BINARY_CLFS
+    
+View output files (e.g., figures) in `/data/processed`.
     
 Repository overview
 -------------------
