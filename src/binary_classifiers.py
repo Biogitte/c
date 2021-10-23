@@ -1,6 +1,14 @@
 #!/usr/bin/python3
+"""
+This module allows a simple and quick comparison of classifiers with binary label categories.
+
+Example usage:
+    $ python3 <path>/binary_classifiers.py --df <path to input data> --label_col <binary label column> --out_dir <output directory>
+"""
+
 import os
 import pandas as pd
+import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
@@ -39,6 +47,7 @@ def import_latest_encoded_df(data_dir: str) -> pd.DataFrame:
 
 def box_plot(data: pd.DataFrame, plot_title: str, out_dir: str, out_name: str):
     """
+    Create boxplot with model performance metrics or time metrics.
     """
     sns.set_theme(style='white')
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -140,10 +149,18 @@ def compare_binary_classifiers(data_dir: str, label_col: str, out_dir: str) -> p
     time_met = results_long.loc[results_long['metrics'].isin(time_metrics)]  # df with fit data
     time_met = time_met.sort_values(by='values')
 
+    # box plots
     box_plot(performance, 'Comparison of Models by Classification Metrics', out_dir, "performance_metrics")
     box_plot(time_met, 'Comparison of Models by Classification Metrics', out_dir, "time_metrics")
 
-    return final, bootstrap_df, performance, time_met
+    # extended metrics info
+    perf_metrics = list(set(performance.metrics.values))
+    ext_perf_metrics = bootstrap_df.groupby(['model'])[perf_metrics].agg([np.std, np.mean])
+
+    time_metrics =  list(set(time_met.metrics.values))
+    ext_time_met = bootstrap_df.groupby(['model'])[time_metrics].agg([np.std, np.mean])
+
+    return final, bootstrap_df, performance, time_met, ext_perf_metrics, ext_time_met
 
 
 if __name__ == '__main__':
