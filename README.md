@@ -32,8 +32,14 @@ Download, clean and encode the data
 Kaggle data set used in the example: [the stroke-prediction-dataset from fedesoriano](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset)
 
     sh $CLEAN_THE_DATA
+    
+Compare binary classification models
+------------------------------------
 
+Quick and simple comparison of common binary classificagtion algorithms.
 
+    sh $COMPARE_BINARY_CLFS
+    
 Repository overview
 -------------------
 
